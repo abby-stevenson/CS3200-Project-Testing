@@ -1,11 +1,20 @@
+#This is how you create the docker container 
+#You can more finley tune it then doing it through docker 
+#You need a way to manage the three different containers 
+#This manages a multicontainer development environment 
+#Each service is one container 
+
 services:
   app:
-    build: ./app
+    build: ./app #Go to the app file and look for this file, this creates a new image 
     container_name: web-app
     hostname: web-app
-    volumes: ["./app/src:/appcode"]
+    volumes: ["./app/src:/appcode"] #This mounts a volume thinking of it as plugging in a usb 
+                                    #drive into your container with your source code in it. 
+                                    #This means that your container will automatically know about 
+                                    #any changes you make in the code 
     ports:
-      - 8501:8501
+      - 8501:8501 #The thing before the colon is the local machine the thing after the colon is the thing inside the container
 
   api:
     build: ./api
@@ -18,10 +27,10 @@ services:
   db:
     env_file:
       - ./api/.env
-    image: mysql:9
+    image: mysql:9 #Doesnt need a docker file as we are using an establish image 
     container_name: mysql_db
     hostname: db
     volumes:
-      - ./database-files:/docker-entrypoint-initdb.d/:ro
+      - ./database-files:/docker-entrypoint-initdb.d/:ro #Anything in the database folder will automatically be loded 
     ports:
       - 3200:3306

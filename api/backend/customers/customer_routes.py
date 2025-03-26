@@ -18,7 +18,7 @@ customers = Blueprint('customers', __name__)
 
 #------------------------------------------------------------
 # Get all customers from the system
-@customers.route('/customers', methods=['GET'])
+@customers.route('/customers', methods=['GET']) #This is what links the url to a particular verb to a particular method
 def get_customers():
 
     cursor = db.get_db().cursor()

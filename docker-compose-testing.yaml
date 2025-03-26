@@ -1,4 +1,9 @@
-name: project-app-testing
+#This is for you to play around with the code not the one you share with your team
+#You cant have two containers running at the same time with the same name so all the name APART FROM HOST have -test 
+#Also the port numbers have been altered 
+
+name: project-app-testing #This has a name 
+
 services:
   app-test:
     build: ./app

@@ -1,3 +1,6 @@
+#provide a specific list of python packages you need installed to run it 
+#You dont run it your container does. This is the file it uses to see which one it needs
+
 werkzeug==2.3.8
 flask==2.3.3
 flask-restful==0.3.9
