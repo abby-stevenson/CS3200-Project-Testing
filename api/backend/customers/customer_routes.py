@@ -26,9 +26,9 @@ def get_customers():
                     first_name, job_title, business_phone FROM customers
     ''')
     
-    theData = cursor.fetchall()
+    theData = cursor.fetchall() #Gives back all the data - how this is set up it gives it back as a query
     
-    the_response = make_response(jsonify(theData))
+    the_response = make_response(jsonify(theData)) #Uses the result of the jsonifyed data as the message
     the_response.status_code = 200
     return the_response
 
